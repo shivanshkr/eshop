@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURl: 'http://localhost:3000/api/v1/',
+  apiURl: 'https://eshop-backend-1.herokuapp.com/api/v1/',
 };
 
 /*
