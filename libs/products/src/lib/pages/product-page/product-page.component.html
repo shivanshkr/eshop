@@ -1,0 +1,64 @@
+<div class="product-page" *ngIf="product">
+  <div class="grid">
+    <div class="col-6">
+      <ui-gallery [images]="product?.images"></ui-gallery>
+    </div>
+    <div class="col-6 product">
+      <h2 class="product-name">{{ product.name }}</h2>
+      <p class="product-desc">
+        {{ product.description }}
+      </p>
+      <div class="product-rating">
+        <p-rating
+          [(ngModel)]="product.rating"
+          [disabled]="true"
+          [cancel]="false"
+        ></p-rating>
+      </div>
+      <div class="product-price">
+        {{ product.price | currency: 'INR' }}
+        <span class="price-before">{{
+          (product.price ? product.price + 10 : 0) | currency: 'INR'
+        }}</span>
+      </div>
+      <div class="product-quantity grid p-fluid">
+        <div class="field col-4 md-3">
+          <label for="quantity">Quantity</label><br />
+          <p-inputNumber
+            [(ngModel)]="quantity"
+            mode="decimal"
+            [showButtons]="true"
+            inputId="quantity"
+            [min]="1"
+            [max]="20"
+          >
+          </p-inputNumber>
+        </div>
+      </div>
+      <div class="product-action">
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Buy Now"
+          class="p-button-rounded mr-2"
+          (click)="addProductToCart()"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Add to cart"
+          class="p-button-rounded mr-2"
+          (click)="addProductToCart()"
+        ></button>
+      </div>
+    </div>
+  </div>
+  <div class="grid product-rich-desc">
+    <div class="col-12">
+      <div [innerHTML]="product.richDescription"></div>
+    </div>
+  </div>
+</div>
+<p-toast></p-toast>
