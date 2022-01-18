@@ -15,7 +15,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputMaskModule } from 'primeng/inputmask';
 import { InputTextModule } from 'primeng/inputtext';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
-import { AuthGuard } from '@bluebits/users';
+import { AuthGuardNgshopGuard } from '@bluebits/users';
 export const ordersRoutes: Route[] = [];
 
 const routes: Routes = [
@@ -23,7 +23,7 @@ const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutPageComponent,
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardNgshopGuard],
   },
   { path: 'success', component: ThankYouComponent },
 ];
