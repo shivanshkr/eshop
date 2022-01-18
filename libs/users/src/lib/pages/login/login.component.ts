@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { User } from '../../Models/user';
 import { AuthService } from '../../services/auth.service';
 import { LocalstorageService } from '../../services/localstorage.service';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'users-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private auth: AuthService,
     private localstorageService: LocalstorageService,
-    private router: Router
+    private router: Router,
+    private usersService: UsersService
   ) {}
 
   ngOnInit(): void {
@@ -47,6 +49,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (user: User) => {
           this.localstorageService.setToken(user.token);
+          this.usersService.initAppSession();
           this.router.navigate(['/']);
         },
         (err: HttpErrorResponse) => {
