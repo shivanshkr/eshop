@@ -5,11 +5,12 @@ import { BannerComponent } from './banner/banner.component';
 import { SliderComponent } from './slider/slider.component';
 import { ButtonModule } from 'primeng/button';
 import { UiGalleryComponent } from './ui-gallery/ui-gallery.component';
+import { CarouselModule } from 'primeng/carousel';
 
 export const usersRoutes: Route[] = [];
 
 @NgModule({
-  imports: [CommonModule, RouterModule, ButtonModule],
+  imports: [CommonModule, RouterModule, ButtonModule, CarouselModule],
   declarations: [BannerComponent, SliderComponent, UiGalleryComponent],
   exports: [BannerComponent, SliderComponent, UiGalleryComponent],
 })

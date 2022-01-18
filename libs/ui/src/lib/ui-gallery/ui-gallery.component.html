@@ -1,5 +1,5 @@
 <div class="gallery" *ngIf="hasImages">
-  <div class="main-image">
+  <!-- <div class="main-image">
     <img [src]="selectedImage" alt="" />
   </div>
   <div class="images">
@@ -10,5 +10,38 @@
         (click)="selectedImage = imageURL"
       ></li>
     </ul>
+  </div> -->
+  <div class="image-main">
+    <img
+      [src]="selectedImage"
+      alt="selectedImage"
+      style="height: 95%; display: block; object-fit: scale-down"
+    />
+  </div>
+  <div class="images-carosel">
+    <p-carousel
+      [value]="images"
+      [numVisible]="6"
+      [numScroll]="1"
+      style="height: 100%"
+    >
+      <ng-template let-item pTemplate="item">
+        <div
+          (click)="selectedImage = item"
+          style="
+            border: 1px solid black;
+            min-width: 50px;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+          "
+        >
+          <img
+            [src]="item"
+            style="height: 100px; display: block; object-fit: scale-down"
+          /></div
+      ></ng-template>
+    </p-carousel>
   </div>
 </div>
+<div *ngIf="!hasImages">No image</div>
