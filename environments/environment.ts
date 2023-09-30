@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiURl: 'https://eshop-backend-1.herokuapp.com/api/v1/',
+  apiURl: 'https://eshop-backend-five.vercel.app/api/v1/',
 };
 
 /*
